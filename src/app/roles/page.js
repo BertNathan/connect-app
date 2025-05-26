@@ -1,4 +1,3 @@
-import UserCard from "@/mock/user-card";
 import {
   IconLogout,
   IconLogout2,
@@ -6,8 +5,8 @@ import {
   IconUsersGroup,
   IconUsersPlus,
   IconPlus,
-  IconUserPlus,
 } from "@tabler/icons-react";
+import AccessTable from "../../mock/role-data";
 import Link from "next/link";
 
 export default function Users() {
@@ -21,15 +20,14 @@ export default function Users() {
           Connect
         </h1>
         <div className="nav-buttons flex flex-col items-center gap-4 p-2 w-full mb-2 font-bold text-[18px]">
-          <button className="rounded-[10px] flex items-center gap-2 py-2 px-3 bg-black text-white border border-gray-300 w-[90%] cursor-pointer">
-            <IconUser /> User
-          </button>
-          <Link href="../roles">
-            <button className="rounded-[10px] flex gap-2 py-2 text-black  cursor-pointer">
-              <IconUserPlus /> Hak Akses
+          <Link href="../user">
+            <button className="rounded-[10px] flex items-center gap-2 py-2 px-3 text-black  cursor-pointer">
+              <IconUser /> User
             </button>
           </Link>
-
+          <button className="rounded-[10px] flex items-center gap-2 py-2 px-3 bg-black text-white border border-gray-300 w-[90%] cursor-pointer">
+            <IconUsersPlus /> Hak Akses
+          </button>
           <button className=" flex items-center gap-2 py-2 px-3  w-[90%] ">
             <IconLogout2 /> Logout
           </button>
@@ -37,14 +35,7 @@ export default function Users() {
       </section>
 
       <section id="content" className="bg-white w-[85%] p-5">
-        <input
-          placeholder="Cari user"
-          className="flex w-[98%] h-[5vh] mb-5 p-4 text-[14,5px] border border-gray-300 rounded-[7px]"
-        />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
+        <AccessTable />
       </section>
       <button className="absolute bottom-10 right-6 bg-gray-300 hover:bg-gray-100 text-xl w-15 h-10 rounded flex items-center justify-center ">
         <IconPlus />
