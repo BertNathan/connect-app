@@ -1,9 +1,11 @@
-const dataroles = [
+export const dataroles = [
     {
-        id :1,  role : "Employee"
+        Nama :1,  role : "Employee"
     },
     {
-        id : 2, role : "Admin"
-    }
+        Nama : 2, role : "Admin"
+    },
+    {
+        Nama :3,  role : "Suspended"
+    },
 ];
-export default dataroles;
