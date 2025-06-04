@@ -1,7 +1,7 @@
 import UserCard from "@/components/ui/users-card";
 import { IconLogout, IconLogout2, IconUser, IconUsersGroup, IconUsersPlus,IconPlus } from "@tabler/icons-react";
 import { Icon } from "lucide-react";
-import { usersData } from "../../../mock/userData";
+import { usersData } from "../../../../mock/userData";
 import Link from "next/link";
 
 
@@ -17,16 +17,17 @@ export default function Users() {
           <button className="rounded-[10px] flex items-center gap-2 py-2 px-3 bg-black text-white border border-gray-300 w-[90%] cursor-pointer">
             <IconUser/> User
           </button>
-<Link href="../roles">
+<Link href="../admin/roles">
  <button className="rounded-[10px] flex items-center gap-2 py-2 px-3 text-black  cursor-pointer">
     <IconUsersPlus /> Hak Akses
   </button>
 </Link>
 
-
+        
           <button className=" flex items-center gap-2 py-2 px-3  w-[90%] ">
             <IconLogout2 /> Logout
           </button>
+          
         </div>
       </section>
 

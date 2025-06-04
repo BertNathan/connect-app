@@ -6,7 +6,7 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import RolesCard from "@/components/ui/tablerole";
-import { dataroles } from "../../../mock/roledata";
+import { dataroles } from "../../../../mock/roledata";
 
 export default function RolesPage() {
   return (
@@ -19,7 +19,7 @@ export default function RolesPage() {
           Connect
         </h1>
         <div className="nav-buttons flex flex-col items-center gap-4 p-2 w-full mb-2 font-bold text-[18px]">
-          <Link href="../users">
+          <Link href="../admin/users">
             <button className="rounded-[10px] flex items-center gap-2 py-2 px-3 text-black cursor-pointer">
               <IconUser /> Users
             </button>
