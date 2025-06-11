@@ -1,18 +1,32 @@
+"use client";
+
 import UserCard from "@/components/ui/users-card";
-import {
-  IconLogout,
-  IconLogout2,
-  IconUser,
-  IconUsersGroup,
-  IconUsersPlus,
-  IconPlus,
-} from "@tabler/icons-react";
-import { Icon } from "lucide-react";
+import { IconPlus } from "@tabler/icons-react";
 import { usersData } from "../../../../mock/userData";
-import Link from "next/link";
-import AdminLayout from "../layout";
+import useSWR from "swr";
 
 export default function Users() {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const {
+    data: users,
+    error,
+    isLoading,
+  } = useSWR(`https://jsonplaceholder.typicode.com/users`, fetcher);
+  if (isLoading) {
+    return (
+      <div>
+        <p>Loading . . .</p>
+      </div>
+    );
+  }
+  if (error){
+    return (
+      <div>
+        <p>Gagak Mengambil Data</p>
+      </div>
+    );
+  }
+console.log(users);
   return (
     <section id="container" className="flex h-screen justify-center">
       <section id="content" className="bg-white w-[85%] p-5">
@@ -20,13 +34,13 @@ export default function Users() {
           placeholder="Cari user"
           className="flex w-[98%] h-[5vh] mb-5 p-4 text-[14,5px] border border-gray-300 rounded-[7px]"
         />
-        {usersData.map((user, index) => (
+        {users.map((user, index) => (
           <UserCard
             key={index}
             name={user.name}
             email={user.email}
-            roles={user.roles}
-            status={user.status}
+            roles={user.company.name}
+            status={user.address.city}
           />
         ))}
       </section>
